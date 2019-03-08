@@ -23,4 +23,4 @@ def predict():
     """Return a random prediction."""
     data = request.json
     prediction = model.predict_proba([data['user_input']])
-    return jsonify({'prob': 100 * round(prediction[0][1], 1)})
+    return jsonify({'prob': round(100 * prediction[0][1])})
