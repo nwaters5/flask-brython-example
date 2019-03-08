@@ -14,7 +14,8 @@ app = Flask(__name__, static_url_path="")
 @app.route('/')
 def index():
     """Return the main page."""
-    return render_template('index.html')
+    hello_message = 'hello welcome to the spam thing'
+    return render_template('index.html', hello_message=hello_message)
 
 
 @app.route('/predict', methods=['GET', 'POST'])
@@ -22,5 +23,4 @@ def predict():
     """Return a random prediction."""
     data = request.json
     prediction = model.predict_proba([data['user_input']])
-    return jsonify({'probability': prediction[0][1]})
-
+    return jsonify({'prob': 100 * round(prediction[0][1], 1)})

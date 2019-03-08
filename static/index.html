@@ -8,22 +8,19 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Spam World</title>
-  <script type="text/javascript" src="brython.js"></script>
-  <script type="text/javascript" src="brython_stdlib.js"></script>
+  <title>Bare - Start Bootstrap Template</title>
 
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
 </head>
 
-<body onload="brython(1)">
-
+<body>
 
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
     <div class="container">
-      <a class="navbar-brand" href="#">Spam World</a>
+      <a class="navbar-brand" href="#">Start Bootstrap</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -52,41 +49,11 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-12 text-center">
-        <h1 class="mt-5">A Spam Predictor from the 1990s</h1>
-        <p class="lead">Complete with analysis using really old, bad e-mails</p>
-
-        <script type="text/python3">
-          from browser import document, ajax
-          import json
-          import warnings
-
-          def show_results(response):
-              if response.status==200 or response.status==0:
-                  data = json.loads(response.text)
-                  document["result"].html = 'Probability is: ' + str(data['prob']) + '%'
-              else:
-                  warnings.warn(response.text)
-
-          def get_prediction(ev):
-              """Get the predicted probability."""
-              req = ajax.ajax()
-              req.bind('complete', show_results)
-              req.open('POST', '/predict', True)
-              req.set_header('content-type','application/json')
-              data = json.dumps({'user_input': document['user_input'].value})
-              req.send(data)
-
-          document["predict_button"].bind("click", get_prediction)
-        </script>
-
-        <textarea id="user_input"></textarea>
-        <p></p>
-        <button id="predict_button">Predict!</button>
-        <p></p>
-        <div id="result"></div>
-
-
+        <h1 class="mt-5">A Bootstrap 4 Starter Template</h1>
+        <p class="lead">Complete with pre-defined file paths and responsive navigation!</p>
         <ul class="list-unstyled">
+          <li>Bootstrap 4.2.1</li>
+          <li>jQuery 3.3.1</li>
         </ul>
       </div>
     </div>
